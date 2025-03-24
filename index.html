@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onuralp Gayret - AI & Computer Vision Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-content container">
+            <div class="logo">
+                <a href="#home" class="logo-link" style="text-decoration: none; color: inherit;">OAG</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+                <li class="language-selector">
+                    <a href="#" onclick="changeLanguage('tr')" class="flag-icon"><img src="https://flagcdn.com/w20/tr.png" alt="Turkish"></a>
+                    <a href="#" onclick="changeLanguage('en')" class="flag-icon"><img src="https://flagcdn.com/w20/us.png" alt="English"></a>
+                    <a href="#" onclick="changeLanguage('de')" class="flag-icon"><img src="https://flagcdn.com/w20/de.png" alt="German"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Shape the Future<br>with AI</h1>
+            <div class="typing-text"></div>
+            <div class="social-links">
+                <a href="https://github.com/OnuralpGrt" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/onuralp-gayret-b181b12b6/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a Computer Vision and Deep Learning Engineer specializing in facial recognition systems and 3D face modeling. Currently working on innovative solutions in the field of computer vision, with a focus on diffusion models and texture completion techniques.</p>
+                    <p>As a member of ITU Cezeri UAV Team, I contribute to unmanned aerial vehicle projects through web development and AI integration. My recent achievements include securing 3rd place in Anadolu Agency's National Hackathon with a face recognition system, and presenting research on texture completion using diffusion models at the GITMA Conference.</p>
+                </div>
+                <div class="about-image">
+                    <img src="profile.jpeg" alt="Onuralp Gayret">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <a href="https://itucezeri.com" target="_blank" style="text-decoration: none; color: inherit;">
+                        <img src="cezeri.png" alt="Cezeri Website" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h3>Cezeri UAV Team Website</h3>
+                        <p>Developed the official website for ITU Cezeri UAV Team, showcasing our innovative UAV projects and achievements. Built with React.js and Next.js, featuring a modern blog section highlighting team activities, technical articles, and competition experiences. Implemented responsive design with Tailwind CSS and integrated a dynamic content management system for easy updates.</p>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="https://www.aa.com.tr/tr/kurumsal-haberler/aa-medya-teknolojileri-hackathonunda-son-48-saat-heyecani/3126133" target="_blank" style="text-decoration: none; color: inherit;">
+                        <img src="tt.gif" alt="Face Recognition Project" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h3>Face Recognition System</h3>
+                        <p>Developed a high-performance face recognition system for Anadolu Agency (AA), achieving 3rd place in their national hackathon. The system features real-time face detection and recognition capabilities, optimized for large-scale media analysis. Implemented with deep learning technologies, achieving 99.5% accuracy in identity verification and real-time processing of multiple video streams.</p>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <img src="gıtma.jpeg" alt="GITMA Conference Paper" style="width: 100%; height: 200px; object-fit: cover;">
+                    <h3>GITMA Conference Paper</h3>
+                    <p>Research paper focused on enhancing single-image texture completion using Diffusion Probabilistic Models, presented at GITMA Conference. The study addresses data loss challenges in 3D face modeling caused by head rotations, proposing innovative solutions using DDPMs and achieving significant improvements in reconstruction accuracy compared to traditional methods.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>AI & Deep Learning</h3>
+                    <ul>
+                        <li>TensorFlow & Keras</li>
+                        <li>PyTorch & Lightning</li>
+                        <li>Hugging Face</li>
+                        <li>Computer Vision</li>
+                        <li>NLP & Transformers</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming & Tools</h3>
+                    <ul>
+                        <li>Python & NumPy</li>
+                        <li>OpenCV & PIL</li>
+                        <li>Docker </li>
+                        <li>Git & MLflow</li>
+                        <li>AWS & GCP</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>SwiftUI</li>
+                        <li>React.js</li>
+                        <li>Node.js</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>onuragyrt@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Istanbul, Turkey</span>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Onuralp Gayret. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <style>
+    .language-selector {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: 20px;
+    }
+
+    .flag-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    .flag-icon img {
+        width: 20px;
+        height: auto;
+        border-radius: 3px;
+        transition: transform 0.2s;
+    }
+
+    .flag-icon img:hover {
+        transform: scale(1.1);
+    }
+    </style>
+</body>
+</html> 
