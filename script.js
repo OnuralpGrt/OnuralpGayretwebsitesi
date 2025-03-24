@@ -195,28 +195,32 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     
     // Disable submit button and show loading state
     submitButton.disabled = true;
-    submitButton.textContent = 'Sending...';
+    submitButton.textContent = 'Gönderiliyor...';
     
     // Submit form data
     fetch(form.action, {
         method: 'POST',
         body: new FormData(form)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
     .then(data => {
         if (data.success) {
             // Show success message
-            alert('Mesajınız başarıyla gönderildi! Ana sayfaya yönlendiriliyorsunuz...');
+            alert('Mesajınız başarıyla gönderildi!');
             form.reset();
-            window.location.href = 'https://onuralp-gayretwebsitesi.vercel.app';
+            window.location.href = form.querySelector('input[name="redirect"]').value;
         } else {
-            // Show error message
-            alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+            throw new Error(data.message || 'Bir hata oluştu');
         }
     })
     .catch(error => {
-        // Show error message
-        alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+        console.error('Error:', error);
+        alert('Bir hata oluştu. Lütfen tekrar deneyin veya doğrudan onuragyrt@gmail.com adresine mail gönderin.');
     })
     .finally(() => {
         // Re-enable submit button and restore original text
