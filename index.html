@@ -145,7 +145,11 @@
                         <span>Istanbul, Turkey</span>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="9ed58df6-5449-4b8f-989e-8848772e487e">
+                    <input type="hidden" name="from_name" value="Onuralp Gayret Website">
+                    <input type="hidden" name="subject" value="New Contact Form Submission">
+                    <input type="hidden" name="redirect" value="https://onuralp-gayretwebsitesi.vercel.app">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                     <textarea name="message" placeholder="Your Message" required></textarea>
