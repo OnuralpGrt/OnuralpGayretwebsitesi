@@ -228,4 +228,36 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'translateY(0)';
     });
+});
+
+// Hamburger menü fonksiyonu
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    
+    navLinks.classList.toggle('active');
+    
+    // Hamburger menü animasyonu
+    const spans = hamburgerMenu.querySelectorAll('span');
+    if (navLinks.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
+    } else {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
+}
+
+// Mobil menüde bir linke tıklandığında menüyü kapat
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        
+        if (navLinks.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
 }); 
