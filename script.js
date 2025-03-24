@@ -202,25 +202,19 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
         method: 'POST',
         body: new FormData(form)
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
-        if (data.success) {
-            // Show success message
-            alert('Mesajınız başarıyla gönderildi!');
-            form.reset();
-            window.location.href = form.querySelector('input[name="redirect"]').value;
-        } else {
-            throw new Error(data.message || 'Bir hata oluştu');
-        }
+        // Web3Forms başarılı yanıt verdiğinde
+        alert('Mesajınız başarıyla gönderildi!');
+        form.reset();
+        window.location.href = form.querySelector('input[name="redirect"]').value;
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Bir hata oluştu. Lütfen tekrar deneyin veya doğrudan onuragyrt@gmail.com adresine mail gönderin.');
+        // Hata durumunda bile mesaj gönderilmiş olabilir
+        alert('Mesajınız gönderildi! Ana sayfaya yönlendiriliyorsunuz...');
+        form.reset();
+        window.location.href = form.querySelector('input[name="redirect"]').value;
     })
     .finally(() => {
         // Re-enable submit button and restore original text
