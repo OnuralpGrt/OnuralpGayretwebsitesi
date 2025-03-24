@@ -185,24 +185,44 @@ window.addEventListener('scroll', () => {
         nav.style.boxShadow = 'none';
     }
 });
-
-// Form gönderimi
-const contactForm = document.querySelector('.contact-form');
-contactForm.addEventListener('submit', (e) => {
+// Contact Form Handling
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Form verilerini al
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
+    const form = this;
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
     
-    // Burada form verilerini işleyebilir veya bir API'ye gönderebilirsiniz
-    console.log('Form verileri:', data);
+    // Disable submit button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
     
-    // Formu temizle
-    contactForm.reset();
-    
-    // Başarı mesajı göster
-    alert('Mesajınız başarıyla gönderildi!');
+    // Submit form data
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Show success message
+            alert('Mesajınız başarıyla gönderildi! Ana sayfaya yönlendiriliyorsunuz...');
+            form.reset();
+            window.location.href = 'https://onuralp-gayretwebsitesi.vercel.app';
+        } else {
+            // Show error message
+            alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+        }
+    })
+    .catch(error => {
+        // Show error message
+        alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+    })
+    .finally(() => {
+        // Re-enable submit button and restore original text
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+    });
 });
 
 // Sayfa yüklendiğinde smooth scroll
