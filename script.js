@@ -1,6 +1,6 @@
 // Yazı animasyonu
 const typingText = document.querySelector('.typing-text');
-const texts = ['AI Developer', 'Computer Vision Expert', 'Deep Learning Engineer'];
+const texts = ['AI Developer', 'Computer Vision Developer', 'Deep Learning Developer'];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
