@@ -48,7 +48,7 @@ const translations = {
         projects: 'Projeler',
         skills: 'Yetenekler',
         contact: 'İletişim',
-        hero_title: 'Şimali Seviyorum<br>Biricik Sevgilim',
+        hero_title: 'Yapay Zeka ile<br>Geleceği Şekillendir',
         about_title: 'Hakkımda',
         about_text1: 'Yüz tanıma sistemleri ve 3D yüz modellemesi konusunda uzmanlaşmış bir Bilgisayarlı Görü ve Derin Öğrenme Mühendisiyim. Şu anda bilgisayarlı görü alanında, difüzyon modelleri ve doku tamamlama teknikleri üzerine yenilikçi çözümler geliştiriyorum.',
         about_text2: 'İTÜ Cezeri İHA Takımı üyesi olarak, web geliştirme ve yapay zeka entegrasyonu yoluyla insansız hava aracı projelerine katkıda bulunuyorum. Son başarılarım arasında Anadolu Ajansı\'nın Ulusal Hackathon\'unda yüz tanıma sistemiyle 3.lük ve GITMA Konferansı\'nda difüzyon modelleri kullanarak doku tamamlama üzerine araştırmamın sunumu yer alıyor.',
