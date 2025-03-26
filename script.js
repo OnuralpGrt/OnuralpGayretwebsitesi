@@ -1,6 +1,6 @@
 // Yazı animasyonu
 const typingText = document.querySelector('.typing-text');
-const texts = ['AI Developer', 'Computer Vision Expert', 'Deep Learning Engineer'];
+const texts = ['AI Developer', 'Computer Vision Expert', 'Deep Learning Specialist'];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -14,7 +14,7 @@ const translations = {
         contact: 'Contact',
         hero_title: 'Shape the Future<br>with AI',
         about_title: 'About Me',
-        about_text1: 'I am a Computer Vision and Deep Learning Engineer specializing in facial recognition systems and 3D face modeling. Currently working on innovative solutions in the field of computer vision, with a focus on diffusion models and texture completion techniques.',
+        about_text1: 'I am a Computer Vision and Deep Learning Specialist specializing in facial recognition systems and 3D face modeling. Currently working on innovative solutions in the field of computer vision, with a focus on diffusion models and texture completion techniques.',
         about_text2: 'As a member of ITU Cezeri UAV Team, I contribute to unmanned aerial vehicle projects through web development and AI integration. My recent achievements include securing 3rd place in Anadolu Agency\'s National Hackathon with a face recognition system, and presenting research on texture completion using diffusion models at the GITMA Conference.',
         projects_title: 'Projects',
         project1_title: 'Cezeri UAV Team Website',
@@ -33,7 +33,7 @@ const translations = {
         contact_message: 'Your Message',
         contact_send: 'Send',
         footer_text: '© 2024 Onuralp Gayret. All rights reserved.',
-        typing_texts: ['AI Developer', 'Computer Vision Expert', 'Deep Learning Engineer'],
+        typing_texts: ['AI Developer', 'Computer Vision Expert', 'Deep Learning Specialist'],
         skills_list_ai: [
             'Face Recognition Systems',
             '3D Face Modeling',
@@ -69,7 +69,7 @@ const translations = {
         contact_message: 'Mesajınız',
         contact_send: 'Gönder',
         footer_text: '© 2024 Onuralp Gayret. Tüm hakları saklıdır.',
-        typing_texts: ['Yapay Zeka Geliştirici', 'Bilgisayarlı Görü Uzmanı', 'Derin Öğrenme Mühendisi'],
+        typing_texts: ['AI Developer', 'Computer Vision Expert', 'Deep Learning Specialist'],
         skills_list_ai: [
             'Yüz Tanıma Sistemleri',
             '3D Yüz Modellemesi',
@@ -86,7 +86,7 @@ const translations = {
         contact: 'Kontakt',
         hero_title: 'Gestalte die Zukunft<br>mit KI',
         about_title: 'Über Mich',
-        about_text1: 'Ich bin ein Computer Vision und Deep Learning Ingenieur, spezialisiert auf Gesichtserkennungssysteme und 3D-Gesichtsmodellierung. Derzeit arbeite ich an innovativen Lösungen im Bereich Computer Vision, mit Fokus auf Diffusionsmodelle und Texturvervollständigungstechniken.',
+        about_text1: 'Ich bin ein Computer Vision und Deep Learning Spezialist, spezialisiert auf Gesichtserkennungssysteme und 3D-Gesichtsmodellierung. Derzeit arbeite ich an innovativen Lösungen im Bereich Computer Vision, mit Fokus auf Diffusionsmodelle und Texturvervollständigungstechniken.',
         about_text2: 'Als Mitglied des ITU Cezeri UAV Teams trage ich durch Webentwicklung und KI-Integration zu unbemannten Luftfahrzeugprojekten bei. Zu meinen jüngsten Erfolgen gehören der 3. Platz beim National Hackathon der Anadolu Agency mit einem Gesichtserkennungssystem und die Präsentation meiner Forschung zur Texturvervollständigung mit Diffusionsmodellen auf der GITMA-Konferenz.',
         projects_title: 'Projekte',
         project1_title: 'Cezeri UAV Team Webseite',
@@ -105,7 +105,7 @@ const translations = {
         contact_message: 'Ihre Nachricht',
         contact_send: 'Senden',
         footer_text: '© 2024 Onuralp Gayret. Alle Rechte vorbehalten.',
-        typing_texts: ['KI-Entwickler', 'Computer Vision Experte', 'Deep Learning Ingenieur'],
+        typing_texts: ['KI-Entwickler', 'Computer Vision Experte', 'Deep Learning Spezialist'],
         skills_list_ai: [
             'Gesichtserkennungssysteme',
             '3D-Gesichtsmodellierung',
