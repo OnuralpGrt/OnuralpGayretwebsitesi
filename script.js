@@ -1,6 +1,6 @@
 // Yazı animasyonu
 const typingText = document.querySelector('.typing-text');
-const texts = ['AI Developer', 'Computer Vision Developer', 'Deep Learning Developer'];
+const texts = ['AI Developer', 'Computer Vision Expert', 'Deep Learning Engineer'];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -278,4 +278,9 @@ document.querySelectorAll('.nav-links a').forEach(link => {
             toggleMenu();
         }
     });
+});
+
+// Sayfa yüklendiğinde Türkçe dilini ayarla
+document.addEventListener('DOMContentLoaded', function() {
+    changeLanguage('tr');
 }); 
