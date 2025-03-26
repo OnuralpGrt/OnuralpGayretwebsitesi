@@ -33,7 +33,14 @@ const translations = {
         contact_message: 'Your Message',
         contact_send: 'Send',
         footer_text: '© 2024 Onuralp Gayret. All rights reserved.',
-        typing_texts: ['AI Developer', 'Computer Vision Expert', 'Deep Learning Engineer']
+        typing_texts: ['AI Developer', 'Computer Vision Expert', 'Deep Learning Engineer'],
+        skills_list_ai: [
+            'Face Recognition Systems',
+            '3D Face Modeling',
+            'Diffusion Models',
+            'Texture Completion',
+            'Real-time Image Processing'
+        ]
     },
     tr: {
         home: 'Anasayfa',
@@ -43,7 +50,7 @@ const translations = {
         contact: 'İletişim',
         hero_title: 'Yapay Zeka ile<br>Geleceği Şekillendir',
         about_title: 'Hakkımda',
-        about_text1: 'Yüz tanıma sistemleri ve 3B yüz modellemesi konusunda uzmanlaşmış bir Bilgisayarlı Görü ve Derin Öğrenme Mühendisiyim. Şu anda bilgisayarlı görü alanında, difüzyon modelleri ve doku tamamlama teknikleri üzerine yenilikçi çözümler geliştiriyorum.',
+        about_text1: 'Yüz tanıma sistemleri ve 3D yüz modellemesi konusunda uzmanlaşmış bir Bilgisayarlı Görü ve Derin Öğrenme Mühendisiyim. Şu anda bilgisayarlı görü alanında, difüzyon modelleri ve doku tamamlama teknikleri üzerine yenilikçi çözümler geliştiriyorum.',
         about_text2: 'İTÜ Cezeri İHA Takımı üyesi olarak, web geliştirme ve yapay zeka entegrasyonu yoluyla insansız hava aracı projelerine katkıda bulunuyorum. Son başarılarım arasında Anadolu Ajansı\'nın Ulusal Hackathon\'unda yüz tanıma sistemiyle 3.lük ve GITMA Konferansı\'nda difüzyon modelleri kullanarak doku tamamlama üzerine araştırmamın sunumu yer alıyor.',
         projects_title: 'Projeler',
         project1_title: 'Cezeri İHA Takımı Web Sitesi',
@@ -51,7 +58,7 @@ const translations = {
         project2_title: 'Yüz Tanıma Sistemi',
         project2_desc: 'Anadolu Ajansı (AA) için geliştirilen ve ulusal hackathon\'da 3.lük elde eden yüksek performanslı yüz tanıma sistemi. Sistem, büyük ölçekli medya analizi için optimize edilmiş gerçek zamanlı yüz tespiti ve tanıma özelliklerine sahip. Derin öğrenme teknolojileri ile geliştirilen sistem, kimlik doğrulamada %99.5 doğruluk oranı ve çoklu video akışlarının gerçek zamanlı işlenmesini sağlıyor.',
         project3_title: 'GITMA Konferans Makalesi',
-        project3_desc: 'GITMA Konferansı\'na gönderilen ve değerlendirme aşamasında olan, Difüzyon Olasılıksal Modelleri kullanarak tek görüntüden doku tamamlamayı geliştirmeye odaklanan araştırma makalesi. Çalışma, baş dönüşlerinden kaynaklanan 3B yüz modellemedeki veri kaybı zorluklarını ele alıyor ve DDPM\'ler kullanarak yenilikçi çözümler öneriyor.',
+        project3_desc: 'GITMA Konferansı\'na gönderilen ve değerlendirme aşamasında olan, Difüzyon Olasılıksal Modelleri kullanarak tek görüntüden doku tamamlamayı geliştirmeye odaklanan araştırma makalesi. Çalışma, baş dönüşlerinden kaynaklanan 3D yüz modellemedeki veri kaybı zorluklarını ele alıyor ve DDPM\'ler kullanarak yenilikçi çözümler öneriyor.',
         skills_title: 'Yetenekler',
         skills_ai: 'Yapay Zeka & Derin Öğrenme',
         skills_prog: 'Programlama & Araçlar',
@@ -62,7 +69,14 @@ const translations = {
         contact_message: 'Mesajınız',
         contact_send: 'Gönder',
         footer_text: '© 2024 Onuralp Gayret. Tüm hakları saklıdır.',
-        typing_texts: ['Yapay Zeka Geliştirici', 'Bilgisayarlı Görü Uzmanı', 'Derin Öğrenme Mühendisi']
+        typing_texts: ['Yapay Zeka Geliştirici', 'Bilgisayarlı Görü Uzmanı', 'Derin Öğrenme Mühendisi'],
+        skills_list_ai: [
+            'Yüz Tanıma Sistemleri',
+            '3D Yüz Modellemesi',
+            'Difüzyon Modelleri',
+            'Doku Tamamlama',
+            'Gerçek Zamanlı Görüntü İşleme'
+        ]
     },
     de: {
         home: 'Startseite',
@@ -91,7 +105,14 @@ const translations = {
         contact_message: 'Ihre Nachricht',
         contact_send: 'Senden',
         footer_text: '© 2024 Onuralp Gayret. Alle Rechte vorbehalten.',
-        typing_texts: ['KI-Entwickler', 'Computer Vision Experte', 'Deep Learning Ingenieur']
+        typing_texts: ['KI-Entwickler', 'Computer Vision Experte', 'Deep Learning Ingenieur'],
+        skills_list_ai: [
+            'Gesichtserkennungssysteme',
+            '3D-Gesichtsmodellierung',
+            'Diffusionsmodelle',
+            'Texturvervollständigung',
+            'Echtzeit-Bildverarbeitung'
+        ]
     }
 };
 
