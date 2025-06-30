@@ -40,7 +40,8 @@ const translations = {
             'Diffusion Models',
             'Texture Completion',
             'Real-time Image Processing'
-        ]
+        ],
+        car_damage_desc: 'I developed an image classification system that can categorize car damages into six classes (crack, scratch, tire flat, dent, glass shatter, lamp broken). In this project, I utilized a state-of-the-art transformer-based deep learning model. The system provides high accuracy and fast results for car damage detection, facilitating automation in insurance, inspection, and used car markets. You can access the details and code from my <a href="https://github.com/OnuralpGrt" target="_blank">Github profile</a>. <br> For model details: <a href="https://huggingface.co/beingamit99/car_damage_detection" target="_blank">Hugging Face</a>',
     },
     tr: {
         home: 'Anasayfa',
@@ -76,7 +77,8 @@ const translations = {
             'Difüzyon Modelleri',
             'Doku Tamamlama',
             'Gerçek Zamanlı Görüntü İşleme'
-        ]
+        ],
+        car_damage_desc: 'Otomobil hasarlarını altı farklı kategoriye (çatlak, çizik, lastik patlak, göçük, cam kırığı, lamba kırığı) ayırabilen bir görüntü sınıflandırma sistemi geliştirdim. Bu projede, transformer tabanlı güncel bir derin öğrenme modelinden yararlandım. Model, araç hasar tespitinde yüksek doğruluk ve hızlı sonuçlar sunarak sigorta, ekspertiz ve ikinci el araç piyasasında otomasyonu kolaylaştırıyor. Çalışmanın detaylarına ve kodlarına <a href="https://github.com/OnuralpGrt" target="_blank">Github profilimden</a> ulaşabilirsiniz. <br> Modelin detayları için: <a href="https://huggingface.co/beingamit99/car_damage_detection" target="_blank">Hugging Face</a>',
     },
     de: {
         home: 'Startseite',
@@ -112,7 +114,8 @@ const translations = {
             'Diffusionsmodelle',
             'Texturvervollständigung',
             'Echtzeit-Bildverarbeitung'
-        ]
+        ],
+        car_damage_desc: 'Ich habe ein Bildklassifizierungssystem entwickelt, das Fahrzeugschäden in sechs Kategorien (Riss, Kratzer, platter Reifen, Delle, Glasschaden, Lampenschaden) einteilen kann. In diesem Projekt habe ich ein modernes, transformerbasiertes Deep-Learning-Modell verwendet. Das System bietet hohe Genauigkeit und schnelle Ergebnisse bei der Fahrzeugschädenerkennung und erleichtert die Automatisierung in Versicherung, Begutachtung und Gebrauchtwagenmarkt. Details und Code finden Sie auf meinem <a href="https://github.com/OnuralpGrt" target="_blank">Github-Profil</a>. <br> Modell-Details: <a href="https://huggingface.co/beingamit99/car_damage_detection" target="_blank">Hugging Face</a>',
     }
 };
 
@@ -168,6 +171,12 @@ function changeLanguage(lang) {
     charIndex = 0;
     isDeleting = false;
     typingText.textContent = '';
+
+    // Car Damage Detection açıklamasını güncelle
+    var carDamageDesc = document.getElementById('car-damage-desc');
+    if (carDamageDesc) {
+        carDamageDesc.innerHTML = translations[lang].car_damage_desc;
+    }
 }
 
 function type() {
