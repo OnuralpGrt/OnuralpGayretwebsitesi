@@ -23,6 +23,8 @@ const translations = {
         project2_desc: 'Developed a high-performance face recognition system for Anadolu Agency (AA), achieving 3rd place in their national hackathon. The system features real-time face detection and recognition capabilities, optimized for large-scale media analysis. Implemented with deep learning technologies, achieving 99.5% accuracy in identity verification and real-time processing of multiple video streams.',
         project3_title: 'GITMA Conference Paper',
         project3_desc: 'Research paper submitted to GITMA Conference and currently under review, focusing on enhancing single-image texture completion using Diffusion Probabilistic Models. The study addresses data loss challenges in 3D face modeling caused by head rotations and proposes innovative solutions using DDPMs.',
+        project4_title: 'Car Damage Classification',
+        project4_desc: 'This application automatically detects and classifies damages on car images using a deep learning model. With its Flask-based web interface, users can upload images and instantly see the damaged areas and severity ("minor", "moderate", "severe"). The system is optimized with transfer learning and data augmentation techniques, offering practical solutions for insurance, used car sales, and fleet management.',
         skills_title: 'Skills',
         skills_ai: 'AI & Deep Learning',
         skills_prog: 'Programming & Tools',
@@ -59,6 +61,8 @@ const translations = {
         project2_desc: 'Anadolu Ajansı (AA) için geliştirilen ve ulusal hackathon\'da 3.lük elde eden yüksek performanslı yüz tanıma sistemi. Sistem, büyük ölçekli medya analizi için optimize edilmiş gerçek zamanlı yüz tespiti ve tanıma özelliklerine sahip. Derin öğrenme teknolojileri ile geliştirilen sistem, kimlik doğrulamada %99.5 doğruluk oranı ve çoklu video akışlarının gerçek zamanlı işlenmesini sağlıyor.',
         project3_title: 'GITMA Konferans Makalesi',
         project3_desc: 'GITMA Konferansı\'na gönderilen ve değerlendirme aşamasında olan, Difüzyon Olasılıksal Modelleri kullanarak tek görüntüden doku tamamlamayı geliştirmeye odaklanan araştırma makalesi. Çalışma, baş dönüşlerinden kaynaklanan 3D yüz modellemedeki veri kaybı zorluklarını ele alıyor ve DDPM\'ler kullanarak yenilikçi çözümler öneriyor.',
+        project4_title: 'Car Damage Classification',
+        project4_desc: 'Bu uygulama, derin öğrenme tabanlı bir model ile araç görsellerindeki hasarları otomatik olarak tespit eder ve sınıflandırır. Flask tabanlı web arayüzü sayesinde kullanıcılar görsel yükleyip, hasarlı bölgeleri ve hasar seviyesini ("minor", "moderate", "severe") anında görebilir. Sistem, transfer learning ve veri artırma teknikleriyle optimize edilmiştir ve sigorta, ikinci el araç alım-satım gibi alanlarda pratik çözümler sunar.',
         skills_title: 'Yetenekler',
         skills_ai: 'Yapay Zeka & Derin Öğrenme',
         skills_prog: 'Programlama & Araçlar',
@@ -95,6 +99,8 @@ const translations = {
         project2_desc: 'Entwicklung eines leistungsstarken Gesichtserkennungssystems für die Anadolu Agency (AA), das den 3. Platz beim nationalen Hackathon erreichte. Das System bietet Echtzeit-Gesichtserkennung und -analyse, optimiert für große Medienanalysen. Mit Deep-Learning-Technologien implementiert, erreicht es 99,5% Genauigkeit bei der Identitätsverifizierung und Echtzeit-Verarbeitung mehrerer Videostreams.',
         project3_title: 'GITMA Konferenz Paper',
         project3_desc: 'Forschungsarbeit, die bei der GITMA-Konferenz eingereicht wurde und sich derzeit in der Begutachtung befindet. Die Studie konzentriert sich auf die Verbesserung der Einzelbild-Texturvervollständigung mittels Diffusions-Wahrscheinlichkeitsmodellen und behandelt Datenverlust-Herausforderungen bei der 3D-Gesichtsmodellierung durch Kopfdrehungen.',
+        project4_title: 'Car Damage Classification',
+        project4_desc: 'Diese Anwendung erkennt und klassifiziert Schäden an Fahrzeugsbildern automatisch mithilfe eines Deep-Learning-Modells. Über die Flask-basierte Weboberfläche können Nutzer Bilder hochladen und sofort die beschädigten Bereiche sowie den Schweregrad ("minor", "moderate", "severe") sehen. Das System ist mit Transfer Learning und Datenaugmentation optimiert und bietet praktische Lösungen für Versicherung, Gebrauchtwagenhandel und Flottenmanagement.',
         skills_title: 'Fähigkeiten',
         skills_ai: 'KI & Deep Learning',
         skills_prog: 'Programmierung & Tools',
@@ -139,9 +145,11 @@ function changeLanguage(lang) {
     projectTitles[0].textContent = translations[lang].project1_title;
     projectTitles[1].textContent = translations[lang].project2_title;
     projectTitles[2].textContent = translations[lang].project3_title;
+    projectTitles[3].textContent = translations[lang].project4_title;
     projectDescs[0].textContent = translations[lang].project1_desc;
     projectDescs[1].textContent = translations[lang].project2_desc;
     projectDescs[2].textContent = translations[lang].project3_desc;
+    projectDescs[3].textContent = translations[lang].project4_desc;
 
     // Skills bölümü
     document.querySelector('#skills h2').textContent = translations[lang].skills_title;
