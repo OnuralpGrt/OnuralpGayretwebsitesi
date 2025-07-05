@@ -562,7 +562,27 @@ footer {
     }
 
     .project-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    .project-card {
+        margin-bottom: 20px;
+    }
+    
+    .project-card img {
+        height: 180px;
+    }
+    
+    .project-card h3 {
+        font-size: 18px;
+        padding: 15px;
+    }
+    
+    .project-card p {
+        font-size: 14px;
+        padding: 0 15px 15px;
+        line-height: 1.5;
     }
 }
 
