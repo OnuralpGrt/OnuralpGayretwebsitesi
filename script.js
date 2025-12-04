@@ -320,4 +320,165 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 // Sayfa yüklendiğinde Türkçe dilini ayarla
 document.addEventListener('DOMContentLoaded', function() {
     changeLanguage('tr');
-}); 
+    initChatbot();
+});
+
+// Chatbot Fonksiyonları
+const GEMINI_API_KEY = 'AIzaSyA7siPIX_ZisvRddGWtbbsm4ThCxaIqcMY';
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
+
+const ONURALP_CONTEXT = `
+Sen ONURaiP adlı bir chatbot'sun ve Onuralp Gayret hakkında sorulara cevap veriyorsun. Her mesajına "Efendim" diye başla ve saygılı bir dille hitap et. İşte Onuralp hakkında bilgiler:
+
+GÜNCEL DURUM (ÖNEMLİ - ÖN PLANDA TUT):
+- Adı: Onuralp Gayret
+- ŞU ANDA Koçfinans'ta Data Scientist olarak çalışıyor (Fintech sektöründe)
+- Fintech alanında veri bilimi projeleri geliştiriyor
+- Finansal teknoloji ve veri analizi konularında aktif olarak çalışıyor
+
+UZMANLIKLARI:
+- Data Science ve Machine Learning
+- Bilgisayarlı Görü ve Derin Öğrenme
+- Fintech ve Finansal Veri Analizi
+- Yapay Zeka Uygulamaları
+
+GEÇMİŞ BAŞARILARI:
+- Anadolu Ajansı Bilişim Vadisi Medya Teknolojileri Hackathonu'nda 133 takım arasından 3. oldu
+- TÜBİTAK BİGG programında finalist oldu
+- Yüz rotasyonuna bağlı yüz rekonstrüksiyonlarında veri kaybını açıklayan makale uluslararası GİTMA konferansında yayımlandı
+- Turkish Technic Aviation Ideathon'da 158 takım arasından finalist olarak son 9 takım arasına kaldı ve 4. oldu
+- Hackathon sonrası Anadolu Ajansı'na bağlı olarak proje geliştirmeleri gerçekleştirdi
+
+PROJELERİ:
+1. Cezeri İHA Takımı Web Sitesi - İTÜ Cezeri İHA Takımı için React.js ve Next.js ile geliştirilen resmi web sitesi
+2. Yüz Tanıma Sistemi - Anadolu Ajansı için geliştirilen yüksek performanslı yüz tanıma sistemi
+3. GITMA Konferans Makalesi - Difüzyon modelleri kullanarak doku tamamlama üzerine araştırma
+4. Car Damage Classification - Derin öğrenme ile araç hasarı tespiti uygulaması
+5. Turkish Technic Aviation Ideathon - YOLOv8 ile bird detection çalışması
+
+TEKNİK YETENEKLERİ:
+- Data Science: Python, Machine Learning, Statistical Analysis
+- Fintech: Finansal modelleme, risk analizi, veri madenciliği
+- Yapay Zeka: Yüz tanıma sistemleri, 3D yüz modellemesi, difüzyon modelleri
+- Programlama: Python, JavaScript, HTML, CSS, React.js, Node.js, SwiftUI
+- Araçlar: PyTorch, TensorFlow, OpenCV, Docker, Git
+
+HER CEVABINDA:
+1. "Efendim" diye başla
+2. Onuralp'ın şu anki Koçfinans'taki Data Scientist pozisyonunu öne çıkar
+3. Fintech alanındaki çalışmalarını vurgula
+4. Saygılı ve profesyonel bir dil kullan
+5. Türkçe cevap ver
+`;
+
+function initChatbot() {
+    const trigger = document.getElementById('chatbot-trigger');
+    const container = document.getElementById('chatbot-container');
+    const toggle = document.getElementById('chatbot-toggle');
+    const input = document.getElementById('chatbot-input');
+    const sendBtn = document.getElementById('chatbot-send');
+    const messages = document.getElementById('chatbot-messages');
+
+    let isOpen = false;
+
+    // Chatbot aç/kapat
+    trigger.addEventListener('click', () => {
+        toggleChatbot();
+    });
+
+    toggle.addEventListener('click', () => {
+        toggleChatbot();
+    });
+
+    function toggleChatbot() {
+        isOpen = !isOpen;
+        container.style.display = isOpen ? 'flex' : 'none';
+        toggle.textContent = isOpen ? '−' : '+';
+        
+        if (isOpen && messages.children.length === 0) {
+            addMessage('Efendim, merhaba! Ben ONURaiP. Koçfinans\'ta Data Scientist olarak çalışan Onuralp Gayret hakkında merak ettiğiniz her şeyi sorabilirsiniz! 🤖', 'bot');
+        }
+    }
+
+    // Mesaj gönderme
+    sendBtn.addEventListener('click', sendMessage);
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
+        const message = input.value.trim();
+        if (!message) return;
+
+        addMessage(message, 'user');
+        input.value = '';
+        
+        showTypingIndicator();
+        getBotResponse(message);
+    }
+
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}-message`;
+        messageDiv.textContent = text;
+        messages.appendChild(messageDiv);
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'typing-indicator';
+        typingDiv.id = 'typing-indicator';
+        typingDiv.innerHTML = `
+            ONURaiP yazıyor...
+            <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        `;
+        messages.appendChild(typingDiv);
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+        const typing = document.getElementById('typing-indicator');
+        if (typing) {
+            typing.remove();
+        }
+    }
+
+    async function getBotResponse(userMessage) {
+        try {
+            const response = await fetch(GEMINI_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{
+                            text: ONURALP_CONTEXT + "\n\nKullanıcı sorusu: " + userMessage
+                        }]
+                    }]
+                })
+            });
+
+            const data = await response.json();
+            removeTypingIndicator();
+
+            if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+                const botResponse = data.candidates[0].content.parts[0].text;
+                addMessage(botResponse, 'bot');
+            } else {
+                addMessage('Üzgünüm, şu anda bir sorun yaşıyorum. Lütfen daha sonra tekrar deneyin.', 'bot');
+            }
+        } catch (error) {
+            console.error('Chatbot error:', error);
+            removeTypingIndicator();
+            addMessage('Bağlantı sorunu yaşıyorum. Lütfen daha sonra tekrar deneyin.', 'bot');
+        }
+    }
+} 
