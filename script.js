@@ -452,10 +452,15 @@ function initChatbot() {
 
     async function getBotResponse(userMessage) {
         try {
-            const response = await fetch(GEMINI_API_URL, {
+            // CORS proxy kullanarak API çağrısı yap
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            const targetUrl = GEMINI_API_URL;
+            
+            const response = await fetch(proxyUrl + targetUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: JSON.stringify({
                     contents: [{
@@ -466,19 +471,58 @@ function initChatbot() {
                 })
             });
 
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
             const data = await response.json();
             removeTypingIndicator();
 
-            if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+            if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
                 const botResponse = data.candidates[0].content.parts[0].text;
                 addMessage(botResponse, 'bot');
+            } else if (data.error) {
+                console.error('API Error:', data.error);
+                addMessage('Efendim, API ile ilgili bir sorun yaşıyorum. Lütfen daha sonra tekrar deneyin.', 'bot');
             } else {
-                addMessage('Üzgünüm, şu anda bir sorun yaşıyorum. Lütfen daha sonra tekrar deneyin.', 'bot');
+                addMessage('Efendim, beklenmeyen bir yanıt aldım. Lütfen sorunuzu farklı şekilde ifade edebilir misiniz?', 'bot');
             }
         } catch (error) {
             console.error('Chatbot error:', error);
             removeTypingIndicator();
-            addMessage('Bağlantı sorunu yaşıyorum. Lütfen daha sonra tekrar deneyin.', 'bot');
+            
+            // Farklı hata türlerine göre mesaj ver
+            if (error.message.includes('Failed to fetch') || error.message.includes('CORS')) {
+                addMessage('Efendim, bağlantı sorunu yaşıyorum. İnternet bağlantınızı kontrol edip tekrar deneyin.', 'bot');
+            } else if (error.message.includes('HTTP error')) {
+                addMessage('Efendim, sunucu ile iletişimde sorun yaşıyorum. Lütfen birkaç dakika sonra tekrar deneyin.', 'bot');
+            } else {
+                // Fallback olarak önceden tanımlanmış yanıtlar ver
+                const fallbackResponse = getFallbackResponse(userMessage);
+                addMessage(fallbackResponse, 'bot');
+            }
         }
+    }
+
+    function getFallbackResponse(userMessage) {
+        const message = userMessage.toLowerCase();
+        
+        if (message.includes('merhaba') || message.includes('selam') || message.includes('hey')) {
+            return 'Efendim, merhaba! Onuralp Gayret şu anda Koçfinans\'ta Data Scientist olarak çalışmaktadır. Kendisi hakkında ne öğrenmek istersiniz?';
+        }
+        
+        if (message.includes('iş') || message.includes('çalış') || message.includes('koçfinans')) {
+            return 'Efendim, Onuralp Gayret şu anda Koçfinans\'ta Data Scientist pozisyonunda çalışmaktadır. Fintech sektöründe veri bilimi projeleri geliştirmekte ve finansal teknoloji alanında uzmanlaşmaktadır.';
+        }
+        
+        if (message.includes('proje') || message.includes('başarı')) {
+            return 'Efendim, Onuralp\'ın önemli projeleri arasında Anadolu Ajansı Yüz Tanıma Sistemi (133 takım arasından 3.), Turkish Technic Aviation Ideathon (158 takım arasından finalist), ve GITMA konferansında yayımlanan araştırma makalesi bulunmaktadır.';
+        }
+        
+        if (message.includes('yetenekler') || message.includes('beceri') || message.includes('teknoloji')) {
+            return 'Efendim, Onuralp\'ın temel uzmanlık alanları Data Science, Machine Learning, Fintech, Bilgisayarlı Görü ve Derin Öğrenme\'dir. Python, TensorFlow, PyTorch, OpenCV gibi teknolojilerde deneyimlidir.';
+        }
+        
+        return 'Efendim, şu anda teknik bir sorun yaşıyorum ancak Onuralp Gayret hakkında genel bilgi verebilirim. Kendisi Koçfinans\'ta Data Scientist olarak çalışan, fintech ve yapay zeka alanlarında uzman bir profesyoneldir. Daha spesifik bir soru sorabilirsiniz.';
     }
 } 
